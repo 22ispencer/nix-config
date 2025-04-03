@@ -47,6 +47,15 @@
     (evil-collection-init))
 #+end_src
 
+** Treesit
+
+#+begin_src emacs-lisp
+  (use-package treesit-auto
+    :ensure t
+    :config
+    (global-treesit-auto-mode))
+#+end_src
+
 * Dev Workflows
 
 #+begin_src emacs-lisp
