@@ -15,6 +15,19 @@
 
 * Utils
 
+** Emacs Settings
+
+#+begin_src emacs-lisp
+  (use-package emacs
+    :custom
+    ;; enable tab completion
+    (tab-always-indent 'complete)
+    (display-line-numbers 'relative)
+    (text-mode-ispell-word-completion nil)
+    :hook
+    (prog-mode . display-line-numbers-mode))
+#+end_src
+
 ** Keybinds
 
 #+begin_src emacs-lisp
@@ -35,6 +48,8 @@
     :ensure t
     :custom
     (evil-undo-system 'undo-redo)
+    (evil-want-C-u-delete t)
+    (evil-want-C-u-scroll t)
     :config
     (evil-mode 1))
 
@@ -56,6 +71,50 @@
     :ensure t
     :config
     (evil-collection-init))
+#+end_src
+
+** Completion
+
+*** Orderless
+This implements a custom completion ordering algorithm. In my opinion it's much more sensible, and allows multiple search terms separated by spaces.
+
+#+begin_src emacs-lisp
+  (use-package orderless
+    :ensure t
+    :custom
+    (completion-styles '(orderless basic))
+    (completion-category-overrides '((file (styles basic partial-completion)))))
+#+end_src
+
+*** Corfu (completion at point)
+Completion at point is what most other text editors mean when they refer to completion.
+
+#+begin_src emacs-lisp
+  (use-package corfu
+    :ensure t
+    :general
+    (:states 'insert :keymaps 'corfu-mode-map
+  	   "TAB" 'corfu-next
+  	   "S-TAB" 'corfu-previous
+  	   "C-SPC" 'corfu-complete)
+    :custom
+    (corfu-auto t)
+    :init
+    (global-corfu-mode))
+#+end_src
+
+*** Vertico
+
+#+begin_src emacs-lisp
+  (use-package vertico
+    :ensure t
+    :general
+    (:keymaps 'vertico-map
+  	   "TAB" 'vertico-next
+  	   "S-TAB" 'vertico-previous
+  	   "C-SPC" 'vertico-insert)
+    :init
+    (vertico-mode))
 #+end_src
 
 ** Treesit
