@@ -74,6 +74,17 @@
 
 ** Completion
 
+*** Orderless
+This implements a custom completion ordering algorithm. In my opinion it's much more sensible, and allows multiple search terms separated by spaces.
+
+#+begin_src emacs-lisp
+  (use-package orderless
+    :ensure t
+    :custom
+    (completion-styles '(orderless basic))
+    (completion-category-overrides '((file (styles basic partial-completion)))))
+#+end_src
+
 *** Corfu (completion at point)
 Completion at point is what most other text editors mean when they refer to completion.
 
