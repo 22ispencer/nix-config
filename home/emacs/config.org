@@ -146,6 +146,14 @@ Completion at point is what most other text editors mean when they refer to comp
     (rust-mode-treesitter-derive t))
 #+end_src
 
+*** Nix
+
+#+begin_src emacs-lisp
+  (use-package nix-mode
+    :ensure t
+    :mode "\\.nix\\'")
+#+end_src
+
 * Dev Workflows
 
 #+begin_src emacs-lisp
