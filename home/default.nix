@@ -23,10 +23,6 @@ in {
     monaspace
   ];
 
-  #services.emacs = {
-  #  enable = true;
-  #};
-
   programs.neovim = {
     enable = true;
   };
@@ -36,6 +32,8 @@ in {
     userName = fullName;
     userEmail = email;
   };
+
+  programs.gh.enable = true;
 
   programs.fish = {
     enable = true;
