@@ -67,6 +67,17 @@
     (global-treesit-auto-mode))
 #+end_src
 
+** Programming Languages
+
+*** Rust
+
+#+begin_src emacs-lisp
+  (use-package rust-mode
+    :ensure t
+    :custom
+    (rust-mode-treesitter-derive t))
+#+end_src
+
 * Dev Workflows
 
 #+begin_src emacs-lisp
