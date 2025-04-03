@@ -6,9 +6,17 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
   };
 
-  outputs = { self, nixpkgs, nixos-wsl, home-manager, ... }: 
+  outputs = { 
+    self,
+    nixpkgs,
+    nixos-wsl,
+    home-manager,
+    emacs-overlay,
+    ...
+  }@inputs: 
   let 
     fullName = "Isaac Spencer";
     username = "isaacspencer";
@@ -27,6 +35,10 @@
             wsl.enable = true;
             wsl.defaultUser = "isaacspencer";
             nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+            nixpkgs.overlays = [
+              emacs-overlay.overlay
+            ];
 
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
