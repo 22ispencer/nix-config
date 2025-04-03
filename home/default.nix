@@ -39,7 +39,10 @@ in {
     enable = true;
   };
 
-  programs.zoxide.enable = true;
+  programs.zoxide = {
+    enable = true;
+    options = [ "--cmd" "cd" ];
+  };
 
   home.stateVersion = "24.11";
 
