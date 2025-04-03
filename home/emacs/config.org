@@ -50,6 +50,7 @@
     (evil-undo-system 'undo-redo)
     (evil-want-C-u-delete t)
     (evil-want-C-u-scroll t)
+    (evil-want-minibuffer t)
     :config
     (evil-mode 1))
 
