@@ -15,6 +15,18 @@
 
 * Utils
 
+** Emacs Settings
+
+#+begin_src emacs-lisp
+  (use-package emacs
+    :custom
+    ;; enable tab completion
+    (tab-always-indent 'complete)
+    (display-line-numbers 'relative)
+    :hook
+    (prog-mode . display-line-numbers-mode))
+#+end_src
+
 ** Keybinds
 
 #+begin_src emacs-lisp
@@ -35,6 +47,8 @@
     :ensure t
     :custom
     (evil-undo-system 'undo-redo)
+    (evil-want-C-u-delete t)
+    (evil-want-C-u-scroll t)
     :config
     (evil-mode 1))
 
@@ -56,6 +70,18 @@
     :ensure t
     :config
     (evil-collection-init))
+#+end_src
+
+** Completion
+
+*** Corfu (completion at point)
+Completion at point is what most other text editors mean when they refer to completion.
+
+#+begin_src emacs-lisp
+  (use-package corfu
+    :ensure t
+    :init
+    (global-corfu-mode))
 #+end_src
 
 ** Treesit
