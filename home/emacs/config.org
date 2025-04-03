@@ -13,9 +13,13 @@
     (load-theme 'doom-monokai-pro))
 #+end_src
 
-* Evil Mode
+* Text Editing
+
+** Evil Mode
 
 #+begin_src emacs-lisp
+  (setq evil-want-keybinding nil)
+
   (use-package evil
     :ensure t
     :custom
@@ -36,4 +40,16 @@
     :config
     (evil-snipe-mode +1)
     (evil-snipe-override-mode +1))
+
+  (use-package evil-collection
+    :ensure t
+    :config
+    (evil-collection-init))
+#+end_src
+
+* Dev Workflows
+
+#+begin_src emacs-lisp
+  (use-package magit
+    :ensure t)
 #+end_src
