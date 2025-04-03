@@ -102,6 +102,20 @@ Completion at point is what most other text editors mean when they refer to comp
     (global-corfu-mode))
 #+end_src
 
+*** Vertico
+
+#+begin_src emacs-lisp
+  (use-package vertico
+    :ensure t
+    :general
+    (:keymaps 'vertico-map
+  	   "TAB" 'vertico-next
+  	   "S-TAB" 'vertico-previous
+  	   "C-SPC" 'vertico-insert)
+    :init
+    (vertico-mode))
+#+end_src
+
 ** Treesit
 
 #+begin_src emacs-lisp
