@@ -91,6 +91,13 @@ Completion at point is what most other text editors mean when they refer to comp
 #+begin_src emacs-lisp
   (use-package corfu
     :ensure t
+    :general
+    (:states 'insert :keymaps 'corfu-mode-map
+  	   "TAB" 'corfu-next
+  	   "S-TAB" 'corfu-previous
+  	   "C-SPC" 'corfu-complete)
+    :custom
+    (corfu-auto t)
     :init
     (global-corfu-mode))
 #+end_src
