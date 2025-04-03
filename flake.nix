@@ -30,7 +30,7 @@
 
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${username} = ./home-manager/home.nix;
+            home-manager.users.${username} = ./home/default.nix;
             home-manager.extraSpecialArgs = {
               inherit username email fullName;
             };
