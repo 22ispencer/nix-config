@@ -13,6 +13,17 @@
     (load-theme 'doom-monokai-pro))
 #+end_src
 
+* Utils
+
+** Keybinds
+
+#+begin_src emacs-lisp
+  (defconst leader "SPC")
+
+  (use-package general
+    :ensure t)
+#+end_src
+
 * Text Editing
 
 ** Evil Mode
@@ -60,5 +71,9 @@
 
 #+begin_src emacs-lisp
   (use-package magit
-    :ensure t)
+    :ensure t
+    :general
+    (:states 'normal
+  	   :prefix leader
+  	   "g" 'magit))
 #+end_src
