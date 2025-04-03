@@ -13,6 +13,7 @@ in {
   imports = [
     ./ghostty.nix
     ./starship.nix
+    ./emacs/default.nix
   ];
 
   home.username = username;
@@ -22,9 +23,9 @@ in {
     monaspace
   ];
 
-  services.emacs = {
-    enable = true;
-  };
+  #services.emacs = {
+  #  enable = true;
+  #};
 
   programs.neovim = {
     enable = true;

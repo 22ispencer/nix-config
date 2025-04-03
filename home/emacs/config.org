@@ -1,0 +1,39 @@
+#+PROPERTY: header-args:emacs-lisp :tangle yes
+
+* Aesthetic
+
+#+begin_src emacs-lisp
+  (set-face-attribute 'default nil :font "Monaspace Argon" :height 180)
+
+  (tool-bar-mode -1)
+
+  (use-package doom-themes
+    :ensure t
+    :config
+    (load-theme 'doom-monokai-pro))
+#+end_src
+
+* Evil Mode
+
+#+begin_src emacs-lisp
+  (use-package evil
+    :ensure t
+    :custom
+    (evil-undo-system 'undo-redo)
+    :config
+    (evil-mode 1))
+
+  (use-package evil-surround
+    :ensure t
+    :config
+    (global-evil-surround-mode 1))
+
+  (use-package evil-snipe
+    :ensure t
+    :custom
+    (evil-snipe-scope 'buffer)
+    (evil-snipe-spillover-scope 'buffer)
+    :config
+    (evil-snipe-mode +1)
+    (evil-snipe-override-mode +1))
+#+end_src

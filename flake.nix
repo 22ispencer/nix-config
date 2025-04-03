@@ -36,6 +36,8 @@
             wsl.defaultUser = "isaacspencer";
             nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+            services.emacs.package = pkgs.emacs-unstable;
+
             nixpkgs.overlays = [
               emacs-overlay.overlay
             ];
