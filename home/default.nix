@@ -21,6 +21,7 @@ in {
 
   home.packages = with pkgs; [
     monaspace
+    nerd-fonts.symbols-only
   ];
 
   programs.neovim = {
