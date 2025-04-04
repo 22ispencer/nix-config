@@ -13,7 +13,7 @@ in {
   imports = [
     #./ghostty.nix
     ./starship.nix
-    #./emacs/default.nix
+    ./emacs/default.nix
   ];
 
   home.username = username;
@@ -44,6 +44,8 @@ in {
     enable = true;
     options = [ "--cmd" "cd" ];
   };
+
+  editor.emacs.withNativeComp = false;
 
   home.stateVersion = "24.11";
 

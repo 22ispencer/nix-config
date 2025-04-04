@@ -7,7 +7,14 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
+    emacs-overlay = {
+      url = "github:nix-community/emacs-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    darwin-emacs = {
+      url = "github:c4710n/nix-darwin-emacs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { 
@@ -17,6 +24,7 @@
     nixos-wsl,
     home-manager,
     emacs-overlay,
+    darwin-emacs,
     flake-utils,
     ...
   }@inputs: 
@@ -63,9 +71,10 @@
         home-manager.darwinModules.home-manager
         ./not-a-macbook/configuration.nix
         {
-      nixpkgs.overlays = [
-        emacs-overlay.overlay
-      ];
+          nixpkgs.overlays = [
+            emacs-overlay.overlays.emacs
+            emacs-overlay.overlays.package
+          ];
           users.users.${username}.home = "/Users/${username}";
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;

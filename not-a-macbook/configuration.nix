@@ -1,7 +1,5 @@
 { pkgs, ... }:
 {
-  services.emacs.package = pkgs.emacs.unstable;
-
   environment.systemPackages = [];
   
   nix.settings.experimental-features = "nix-command flakes";
