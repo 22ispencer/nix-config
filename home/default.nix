@@ -11,9 +11,9 @@ let
   homeDirPrefix = if pkgs.stdenv.hostPlatform.isDarwin then "/Users" else "/home";
 in {
   imports = [
-    ./ghostty.nix
+    #./ghostty.nix
     ./starship.nix
-    ./emacs/default.nix
+    #./emacs/default.nix
   ];
 
   home.username = username;
