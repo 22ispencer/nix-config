@@ -45,8 +45,6 @@ in {
     options = [ "--cmd" "cd" ];
   };
 
-  editor.emacs.withNativeComp = false;
-
   home.stateVersion = "24.11";
 
   programs.home-manager.enable = true;
