@@ -91,6 +91,15 @@
     :ensure t
     :config
     (evil-collection-init))
+
+  (use-package vimish-fold
+    :ensure t
+    :after evil)
+
+  ;(use-package evil-vimish-fold
+  ;  :ensure t
+  ;  :after vimish-fold
+  ;  :hook ((prog-mode conf-mode text-mode) . evil-vimish-foldn-mode))
 #+end_src
 
 ** Completion
