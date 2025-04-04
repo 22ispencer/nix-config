@@ -1,4 +1,4 @@
-#+PROPERTY: header-args:emacs-lisp :tangle yes
+#+PROPERTY: header-args:emacs-lisp :tangle init.el
 
 * Aesthetic
 
@@ -9,6 +9,8 @@
 
   (use-package doom-themes
     :ensure t
+    :custom
+    (custom-safe-themes t)
     :config
     (load-theme 'doom-monokai-pro))
 #+end_src
@@ -34,6 +36,15 @@
     (text-mode-ispell-word-completion nil)
     :hook
     (prog-mode . display-line-numbers-mode))
+#+end_src
+
+** TODO Auto Tangle
+
+#+begin_src emacs-lisp
+  (use-package org-auto-tangle
+    :ensure t
+    :defer t
+    :hook (org-mode . org-auto-tangle-mode))
 #+end_src
 
 ** Keybinds
