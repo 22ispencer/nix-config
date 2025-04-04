@@ -32,6 +32,14 @@ in {
     enable = true;
     userName = fullName;
     userEmail = email;
+    extraConfig = {
+      http = {
+        "https://mandalore.hq.wsuniar.org" = {
+          sslVerify = false;
+        };
+      };
+    };
+            
   };
 
   programs.gh.enable = true;
