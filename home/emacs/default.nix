@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }: {
+{ pkgs, config, lib, nixConfigDir, ... }: {
   options.editor.emacs = {
     enable = lib.mkOption {
       type = lib.types.bool;
@@ -28,6 +28,6 @@
     };
 
     home.file.".emacs.d/init.el".source =
-      config.lib.file.mkOutOfStoreSymlink ./init.el;
+      config.lib.file.mkOutOfStoreSymlink (nixConfigDir + "home/emacs/init.el");
   };
 }

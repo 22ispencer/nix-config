@@ -58,6 +58,7 @@
             home-manager.users.${username} = ./home/default.nix;
             home-manager.extraSpecialArgs = {
               inherit username email fullName;
+              nixConfigDir = "/etc/nixos/";
             };
 
             programs.fish.enable = true;
@@ -81,6 +82,7 @@
           home-manager.users.${username} = ./not-a-macbook/home.nix;
           home-manager.extraSpecialArgs = {
             inherit username email fullName;
+            nixConfigDir = "/etc/nix-darwin/";
           };
         }
       ];
