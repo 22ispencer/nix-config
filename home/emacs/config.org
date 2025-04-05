@@ -56,13 +56,23 @@
         )
 #+end_src
 
-** TODO Auto Tangle
+** Auto Tangle
 
 #+begin_src emacs-lisp
   (use-package org-auto-tangle
     :ensure t
     :defer t
     :hook (org-mode . org-auto-tangle-mode))
+#+end_src
+
+** Shell Path
+
+#+begin_src emacs-lisp
+  (use-package exec-path-from-shell
+    :ensure t
+    :config
+    (when (memq window-system '(mac ns x))
+      (exec-path-from-shell-initialize)))
 #+end_src
 
 ** Keybinds
