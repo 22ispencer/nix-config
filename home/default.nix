@@ -20,9 +20,9 @@ in {
   home.username = username;
   home.homeDirectory = "${homeDirPrefix}/${username}";
 
-  home.packages = with pkgs; [
-    monaspace
-    nerd-fonts.symbols-only
+  home.packages = [
+    pkgs.monaspace
+    pkgs.nerd-fonts.symbols-only
   ];
 
   programs.neovim = {
