@@ -32,6 +32,7 @@
   (use-package emacs
     :custom
     ;; enable tab completion
+    (frame-resize-pixelwise t)
     (tab-always-indent 'complete)
     (display-line-numbers 'relative)
     (text-mode-ispell-word-completion nil)
