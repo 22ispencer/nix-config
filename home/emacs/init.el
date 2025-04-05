@@ -7,7 +7,7 @@
   :custom
   (custom-safe-themes t)
   :config
-  (load-theme 'doom-monokai-pro))
+  (load-theme 'doom-palenight))
 
 (use-package doom-modeline
   :ensure t
