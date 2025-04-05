@@ -1,4 +1,9 @@
+{ lib, config, options, ... }:
 {
+  options.mods.ghostty = {
+    enable = lib.mkEnableOption "ghostty terminal";
+  };
+  config = lib.mkIf config.mods.ghostty.enable {
   programs.ghostty = {
     enable = true;
     installVimSyntax = true;
@@ -48,5 +53,6 @@
 	"liga"
       ];
     };
+  };
   };
 }
