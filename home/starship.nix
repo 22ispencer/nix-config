@@ -104,7 +104,7 @@
           Android = " ";
           Arch = " ";
           Artix = " ";
-          CachyOS = " ";
+          #CachyOS = " ";
           CentOS = " ";
           Debian = " ";
           DragonFly = " ";
@@ -126,7 +126,7 @@
           Mint = " ";
           NetBSD = " ";
           NixOS = " ";
-          Nobara = " ";
+          #Nobara = " ";
           OpenBSD = "󰈺 ";
           openSUSE = " ";
           OracleLinux = "󰌷 ";
