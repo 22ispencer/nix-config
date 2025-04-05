@@ -20,6 +20,7 @@
   (tab-always-indent 'complete)
   (display-line-numbers 'relative)
   (text-mode-ispell-word-completion nil)
+  (inhibit-startup-screen t)
   :hook
   (prog-mode . display-line-numbers-mode))
 
