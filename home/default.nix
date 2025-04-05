@@ -14,6 +14,7 @@ in {
     #./ghostty.nix
     ./starship.nix
     ./emacs/default.nix
+    ./languages/default.nix
   ];
 
   home.username = username;
