@@ -15,7 +15,10 @@ in {
     ./starship.nix
     ./emacs/default.nix
     ./languages/default.nix
+    ./cli/default.nix
   ];
+
+  mods.cli.enable = true;
 
   home.username = username;
   home.homeDirectory = "${homeDirPrefix}/${username}";
