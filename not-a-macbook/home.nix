@@ -4,5 +4,5 @@
     ../home/default.nix
   ];
 
-  editor.emacs.withNativeComp = false;
+  mods.emacs.withNativeComp = false;
 }

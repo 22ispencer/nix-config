@@ -1,5 +1,5 @@
 { pkgs, config, lib, nixConfigDir, ... }: {
-  options.editor.emacs = {
+  options.mods.emacs = {
     enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
@@ -15,13 +15,13 @@
   config = let
     customEmacs = (pkgs.emacsWithPackagesFromUsePackage {
       package = (pkgs.emacs-unstable.override {
-        withNativeCompilation = config.editor.emacs.withNativeComp;
+        withNativeCompilation = config.mods.emacs.withNativeComp;
       });
       config = ./config.org;
       alwaysTangle = true;
       extraEmacsPackages = epkgs: [ epkgs.treesit-grammars.with-all-grammars ];
     });
-  in lib.mkIf config.editor.emacs.enable {
+  in lib.mkIf config.mods.emacs.enable {
     programs.emacs = {
       enable = true;
       package = customEmacs;
