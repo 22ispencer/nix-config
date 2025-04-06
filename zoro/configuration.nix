@@ -11,7 +11,12 @@
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot = {
+    enable = true;
+    windows."11" = {
+      efiDeviceHandle = "HD0b";
+    };
+  };
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "zoro"; # Define your hostname.
