@@ -204,6 +204,19 @@ Completion at point is what most other text editors mean when they refer to comp
     :mode "\\.nix\\'")
 #+end_src
 
+** Org Mode
+
+#+begin_src emacs-lisp
+  (use-package org
+    :hook
+    (org-mode . org-indent-mode))
+
+  (use-package org-bullets
+    :ensure t
+    :hook
+    (org-mode . (lambda () (org-bullets-mode 1))))
+#+end_src
+
 * Dev Workflows
 
 #+begin_src emacs-lisp
