@@ -1,4 +1,4 @@
-(set-face-attribute 'default nil :font "Monaspace Argon" :height 180)
+(set-face-attribute 'default nil :font "Monaspace Argon" :height 160)
 
 (tool-bar-mode -1)
 (menu-bar-mode -1)
