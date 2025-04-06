@@ -66,6 +66,11 @@
           })
         ];
       };
+      zoro = nixpkgs.lib.nixosSystem {
+        modules = [
+	  ./zoro/configuration.nix
+        ];
+     	};
     };
     darwinConfigurations."not-a-macbook" = nix-darwin.lib.darwinSystem {
       modules = [ 
