@@ -69,8 +69,22 @@
       zoro = nixpkgs.lib.nixosSystem {
         modules = [
 	  ./zoro/configuration.nix
+          home-manager.nixosModules.home-manager
+	  {
+            nixpkgs.overlays = [
+              emacs-overlay.overlays.emacs
+              emacs-overlay.overlays.package
+            ];
+	    home-manager.useGlobalPkgs = true;
+	    home-manager.useUserPackages = true;
+	    home-manager.users.${username} = ./zoro/home.nix;
+            home-manager.extraSpecialArgs = {
+              inherit username email fullName;
+              nixConfigDir = "/etc/nixos/";
+            };
+	  }
         ];
-     	};
+      };
     };
     darwinConfigurations."not-a-macbook" = nix-darwin.lib.darwinSystem {
       modules = [ 
