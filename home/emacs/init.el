@@ -139,6 +139,15 @@
   :ensure t
   :mode "\\.nix\\'")
 
+(use-package org
+  :hook
+  (org-mode . org-indent-mode))
+
+(use-package org-bullets
+  :ensure t
+  :hook
+  (org-mode . (lambda () (org-bullets-mode 1))))
+
 (use-package magit
   :ensure t
   :general
