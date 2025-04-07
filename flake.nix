@@ -83,13 +83,13 @@
           ];
         };
       };
-      darwinConfigurations."not-a-macbook" = nix-darwin.lib.darwinSystem {
+      darwinConfigurations."ace" = nix-darwin.lib.darwinSystem {
         specialArgs = { inherit username; };
         modules = [
           home-manager.darwinModules.home-manager
-          ./not-a-macbook/configuration.nix
+          ./ace/configuration.nix
           (setupMachine {
-            hostname = "not-a-macbook";
+            hostname = "ace";
             nixConfigDir = "/etc/nix-darwin/";
           })
         ];
