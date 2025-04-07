@@ -1,7 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, username, ... }:
 {
-  environment.systemPackages = [];
-  
+  users.users.${username}.home = "/Users/${username}";
+
+  environment.systemPackages = [ ];
+
   nix.settings.experimental-features = "nix-command flakes";
 
   system.stateVersion = 5;

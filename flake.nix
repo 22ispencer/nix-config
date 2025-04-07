@@ -33,87 +33,65 @@
       fullName = "Isaac Spencer";
       username = "isaacspencer";
       email = "isaac.spencer@idp.wichita.edu";
+      setupMachine =
+        {
+          hostname,
+          nixConfigDir,
+        }:
+        {
+          nixpkgs.overlays = [
+            emacs-overlay.overlays.emacs
+            emacs-overlay.overlays.package
+          ];
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.${username} = ./. + "/${hostname}/home.nix";
+          home-manager.extraSpecialArgs = {
+            inherit
+              username
+              email
+              fullName
+              nixConfigDir
+              ;
+          };
+        };
     in
     {
       nixosConfigurations = {
         # Work WSL
         garp = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit username; };
           system = "x86_64-linux";
           modules = [
             nixos-wsl.nixosModules.default
+            ./garp/configuration.nix
             home-manager.nixosModules.home-manager
-            (
-              { config, pkgs, ... }:
-              {
-                system.stateVersion = "24.11";
-
-                wsl.enable = true;
-                wsl.defaultUser = "isaacspencer";
-                wsl.wslConf.network.hostname = "garp";
-
-                nix.settings.experimental-features = [
-                  "nix-command"
-                  "flakes"
-                ];
-
-                services.emacs.package = pkgs.emacs-unstable;
-
-                nixpkgs.overlays = [
-                  emacs-overlay.overlay
-                ];
-
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-                home-manager.users.${username} = ./home/default.nix;
-                home-manager.extraSpecialArgs = {
-                  inherit username email fullName;
-                  nixConfigDir = "/etc/nixos/";
-                };
-
-                programs.fish.enable = true;
-                users.users.${username}.shell = pkgs.fish;
-              }
-            )
+            (setupMachine {
+              hostname = "garp";
+              nixConfigDir = "/etc/nixos/";
+            })
           ];
         };
         zoro = nixpkgs.lib.nixosSystem {
           modules = [
             ./zoro/configuration.nix
             home-manager.nixosModules.home-manager
-            {
-              nixpkgs.overlays = [
-                emacs-overlay.overlays.emacs
-                emacs-overlay.overlays.package
-              ];
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.${username} = ./zoro/home.nix;
-              home-manager.extraSpecialArgs = {
-                inherit username email fullName;
-                nixConfigDir = "/etc/nixos/";
-              };
-            }
+            (setupMachine {
+              hostname = "zoro";
+              nixConfigDir = "/etc/nixos/";
+            })
           ];
         };
       };
       darwinConfigurations."not-a-macbook" = nix-darwin.lib.darwinSystem {
+        extraSpecialArgs = { inherit username; };
         modules = [
           home-manager.darwinModules.home-manager
           ./not-a-macbook/configuration.nix
-          {
-            nixpkgs.overlays = [
-              emacs-overlay.overlays.emacs
-              emacs-overlay.overlays.package
-            ];
-            users.users.${username}.home = "/Users/${username}";
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.${username} = ./not-a-macbook/home.nix;
-            home-manager.extraSpecialArgs = {
-              inherit username email fullName;
-              nixConfigDir = "/etc/nix-darwin/";
-            };
-          }
+          (setupMachine {
+            hostname = "not-a-macbook";
+            nixConfigDir = "/etc/nix-darwin/";
+          })
         ];
       };
     };
