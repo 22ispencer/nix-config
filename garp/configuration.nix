@@ -11,6 +11,12 @@
     "flakes"
   ];
 
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
   programs.zsh.enable = true;
   users.users.${username}.shell = pkgs.zsh;
 }
