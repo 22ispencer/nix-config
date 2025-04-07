@@ -84,7 +84,7 @@
         };
       };
       darwinConfigurations."not-a-macbook" = nix-darwin.lib.darwinSystem {
-        extraSpecialArgs = { inherit username; };
+        specialArgs = { inherit username; };
         modules = [
           home-manager.darwinModules.home-manager
           ./not-a-macbook/configuration.nix
