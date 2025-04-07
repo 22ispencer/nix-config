@@ -36,8 +36,8 @@
     in
     {
       nixosConfigurations = {
-        # WSL
-        nixos = nixpkgs.lib.nixosSystem {
+        # Work WSL
+        garp = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             nixos-wsl.nixosModules.default
@@ -46,8 +46,11 @@
               { config, pkgs, ... }:
               {
                 system.stateVersion = "24.11";
+
                 wsl.enable = true;
                 wsl.defaultUser = "isaacspencer";
+                wsl.wslConf.network.hostname = "garp";
+
                 nix.settings.experimental-features = [
                   "nix-command"
                   "flakes"
