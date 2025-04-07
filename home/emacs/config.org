@@ -4,11 +4,14 @@
 * Aesthetic
 
 #+begin_src emacs-lisp
-  (set-face-attribute 'default nil :font "Monaspace Argon" :height 160)
+  (setq me/font-size (cond ((equal system-name "garp") 200)
+  			 (t 160)))
+  (set-face-attribute 'default nil :font "Monaspace Argon" :height me/font-size)
 
   (tool-bar-mode -1)
   (menu-bar-mode -1)
   (scroll-bar-mode -1)
+
 
   (use-package doom-themes
     :ensure t
