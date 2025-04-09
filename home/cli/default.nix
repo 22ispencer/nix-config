@@ -6,7 +6,13 @@
   config = lib.mkIf config.mods.cli.enable {
     programs.zsh = {
       enable = true;
-      autosuggestion.enable = true;
+      initExtraBeforeCompInit = ''
+        zstyle ':completion:*' matcher-list ''' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+      '';
+      initExtra = ''
+        WORDCHARS='_-.[]()'
+      '';
+      autosuggestion.enable = true; 
       syntaxHighlighting.enable = true;
     };
     home.packages = [
