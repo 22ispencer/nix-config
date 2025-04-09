@@ -13,9 +13,10 @@ in {
   imports = [
     ./ghostty.nix
     ./starship.nix
-    ./emacs/default.nix
-    ./languages/default.nix
-    ./cli/default.nix
+    ./emacs
+    ./languages
+    ./cli
+    ./jetbrains
   ];
 
   mods.cli.enable = true;
