@@ -5,6 +5,7 @@
   wsl.enable = true;
   wsl.defaultUser = "isaacspencer";
   wsl.wslConf.network.hostname = "garp";
+  wsl.startMenuLaunchers = true;
 
   nix.settings.experimental-features = [
     "nix-command"
