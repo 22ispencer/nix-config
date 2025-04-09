@@ -135,7 +135,7 @@
   :init
   (global-corfu-mode)
   :config
-  (keymap-unset corfu-mode-map "RET"))
+  (define-key corfu-map (kbd "<RET>") nil))
 
 (use-package vertico
   :ensure t
