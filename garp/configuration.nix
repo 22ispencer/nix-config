@@ -17,6 +17,8 @@
     options = "--delete-older-than 30d";
   };
 
+  nixpkgs.config.allowUnfree = true;
+
   programs.zsh.enable = true;
   users.users.${username}.shell = pkgs.zsh;
 }
