@@ -183,7 +183,9 @@ Completion at point is what most other text editors mean when they refer to comp
     :custom
     (corfu-auto t)
     :init
-    (global-corfu-mode))
+    (global-corfu-mode)
+    :config
+    (keymap-unset corfu-mode-map "RET"))
 #+end_src
 
 *** Vertico
