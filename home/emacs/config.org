@@ -1,34 +1,6 @@
 #+PROPERTY: header-args:emacs-lisp :tangle init.el
 #+auto_tangle: t
 
-* Aesthetic
-
-#+begin_src emacs-lisp
-  (setq me/font-size (cond ((equal system-name "garp") 200)
-  			 (t 160)))
-  (set-face-attribute 'default nil :font "Monaspace Argon" :height me/font-size)
-
-  (tool-bar-mode -1)
-  (menu-bar-mode -1)
-  (scroll-bar-mode -1)
-
-
-  (use-package doom-themes
-    :ensure t
-    :custom
-    (custom-safe-themes t)
-    :config
-    (load-theme 'doom-palenight))
-#+end_src
-
-** Modeline
-
-#+begin_src emacs-lisp
-  (use-package doom-modeline
-    :ensure t
-    :init (doom-modeline-mode 1))
-#+end_src
-
 * Utils
 
 ** Emacs Settings
@@ -89,6 +61,53 @@
 
   (use-package general
     :ensure t)
+#+end_src
+
+** Reloading
+
+#+begin_src emacs-lisp
+  (defun me/reload-config ()
+    "Reload init file"
+    (interactive)
+    (load "~/.emacs.d/init.el")
+    (message "reloaded config"))
+
+  (general-def
+    :states 'normal
+    "SPC q Q" 'kill-emacs
+    "SPC q r" 'me/reload-config)
+#+end_src
+
+* Aesthetic
+
+#+begin_src emacs-lisp
+  (setq me/font-size (cond ((equal system-name "garp") 20)
+  			 (t 16)))
+  (setq me/font-name (format "Monaspace Argon-%d" me/font-size))
+
+  (add-to-list 'default-frame-alist `(font . ,me/font-name))
+  ; (set-face-attribute 'default nil :font "Monaspace Argon" :height me/font-size)
+
+
+  (tool-bar-mode -1)
+  (menu-bar-mode -1)
+  (scroll-bar-mode -1)
+
+
+  (use-package doom-themes
+    :ensure t
+    :custom
+    (custom-safe-themes t)
+    :config
+    (load-theme 'doom-palenight))
+#+end_src
+
+** Modeline
+
+#+begin_src emacs-lisp
+  (use-package doom-modeline
+    :ensure t
+    :init (doom-modeline-mode 1))
 #+end_src
 
 * Text Editing

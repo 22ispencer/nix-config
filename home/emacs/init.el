@@ -1,23 +1,3 @@
-(setq me/font-size (cond ((equal system-name "garp") 200)
-			 (t 160)))
-(set-face-attribute 'default nil :font "Monaspace Argon" :height me/font-size)
-
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-(scroll-bar-mode -1)
-
-
-(use-package doom-themes
-  :ensure t
-  :custom
-  (custom-safe-themes t)
-  :config
-  (load-theme 'doom-palenight))
-
-(use-package doom-modeline
-  :ensure t
-  :init (doom-modeline-mode 1))
-
 (use-package emacs
   :custom
   ;; enable tab completion
@@ -61,6 +41,41 @@
 
 (use-package general
   :ensure t)
+
+(defun me/reload-config ()
+  "Reload init file"
+  (interactive)
+  (load "~/.emacs.d/init.el")
+  (message "reloaded config"))
+
+(general-def
+  :states 'normal
+  "SPC q Q" 'kill-emacs
+  "SPC q r" 'me/reload-config)
+
+(setq me/font-size (cond ((equal system-name "garp") 20)
+			 (t 16)))
+(setq me/font-name (format "Monaspace Argon-%d" me/font-size))
+
+(add-to-list 'default-frame-alist `(font . ,me/font-name))
+; (set-face-attribute 'default nil :font "Monaspace Argon" :height me/font-size)
+
+
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+
+
+(use-package doom-themes
+  :ensure t
+  :custom
+  (custom-safe-themes t)
+  :config
+  (load-theme 'doom-palenight))
+
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1))
 
 (setq evil-want-keybinding nil)
 
@@ -118,7 +133,9 @@
   :custom
   (corfu-auto t)
   :init
-  (global-corfu-mode))
+  (global-corfu-mode)
+  :config
+  (keymap-unset corfu-mode-map "RET"))
 
 (use-package vertico
   :ensure t
