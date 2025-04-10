@@ -7,11 +7,7 @@
 }:
 {
   options.mods.emacs = {
-    enable = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-      description = "enable emacs";
-    };
+    enable = lib.mkEnableOption "emacs editor";
     withNativeComp = lib.mkOption {
       type = lib.types.bool;
       default = true;
