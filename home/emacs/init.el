@@ -74,9 +74,9 @@
   :config
   (load-theme 'doom-palenight))
 
-(use-package doom-modeline
-  :ensure t
-  :init (doom-modeline-mode 1))
+;(use-package doom-modeline
+;  :ensure t
+;  :init (doom-modeline-mode 1))
 
 (setq evil-want-keybinding nil)
 
