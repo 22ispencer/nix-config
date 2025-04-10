@@ -58,6 +58,7 @@
 (setq me/font-name (format "Monaspace Argon-%d" me/font-size))
 
 (add-to-list 'default-frame-alist `(font . ,me/font-name))
+(set-fontset-font t nil (font-spec :size 20 :name "Symbols Nerd Font"))
 ; (set-face-attribute 'default nil :font "Monaspace Argon" :height me/font-size)
 
 
