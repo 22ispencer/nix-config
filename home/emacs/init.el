@@ -176,3 +176,6 @@
   (:states 'normal
 	   :prefix leader
 	   "g" 'magit))
+
+(use-package vterm
+  :ensure t)

@@ -245,6 +245,8 @@ Completion at point is what most other text editors mean when they refer to comp
 
 * Dev Workflows
 
+** Git
+
 #+begin_src emacs-lisp
   (use-package magit
     :ensure t
@@ -252,4 +254,11 @@ Completion at point is what most other text editors mean when they refer to comp
     (:states 'normal
   	   :prefix leader
   	   "g" 'magit))
+#+end_src
+
+** Terminal
+
+#+begin_src emacs-lisp
+  (use-package vterm
+    :ensure t)
 #+end_src
