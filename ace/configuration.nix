@@ -1,5 +1,6 @@
 { pkgs, username, ... }:
 {
+  imports = [ ./brew.nix ];
   users.users.${username}.home = "/Users/${username}";
 
   environment.systemPackages = [ ];

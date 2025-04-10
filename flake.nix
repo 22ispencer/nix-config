@@ -2,7 +2,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
-    nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -11,9 +10,14 @@
       url = "github:nix-community/emacs-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    darwin-emacs = {
-      url = "github:c4710n/nix-darwin-emacs";
-      inputs.nixpkgs.follows = "nixpkgs";
+    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
     };
   };
 
@@ -25,8 +29,10 @@
       nixos-wsl,
       home-manager,
       emacs-overlay,
-      darwin-emacs,
       flake-utils,
+      nix-homebrew,
+      homebrew-core,
+      homebrew-cask,
       ...
     }@inputs:
     let
@@ -84,14 +90,16 @@
         };
       };
       darwinConfigurations."ace" = nix-darwin.lib.darwinSystem {
-        specialArgs = { inherit username; };
+        specialArgs = { inherit username homebrew-core homebrew-cask; };
         modules = [
           home-manager.darwinModules.home-manager
+          nix-homebrew.darwinModules.nix-homebrew
           ./ace/configuration.nix
           (setupMachine {
             hostname = "ace";
             nixConfigDir = "/etc/nix-darwin/";
           })
+          
         ];
       };
     };
