@@ -60,6 +60,7 @@ Automatically sources project specific files (like flakes)
 
 #+begin_src emacs-lisp
   (use-package direnv
+    :ensure t
     :config
     (direnv-mode))
 #+end_src
