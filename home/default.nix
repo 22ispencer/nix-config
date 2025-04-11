@@ -17,6 +17,7 @@ in {
     ./languages
     ./cli
     ./jetbrains
+    ./lorri
   ];
 
   mods.cli.enable = true;
