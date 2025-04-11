@@ -158,6 +158,23 @@
   :config
   (global-treesit-auto-mode))
 
+(use-package web-mode
+  :ensure
+  t
+  :mode
+  (("\\.phtml\\'" . web-mode)
+   ("\\.php\\'" . web-mode)
+   ("\\.tpl\\'" . web-mode)
+   ("\\.[agj]sp\\'" . web-mode)
+   ("\\.as[cp]x\\'" . web-mode)
+   ("\\.erb\\'" . web-mode)
+   ("\\.mustache\\'" . web-mode)
+   ("\\.cshtml?\\'" . web-mode)
+   ("\\.djhtml\\'" . web-mode))
+  :custom
+  (web-mode-engines-alist
+   '(("razor" . "\\.cshtml\\"))))
+
 (use-package rust-mode
   :ensure t
   :custom
@@ -184,4 +201,7 @@
 	   "g" 'magit))
 
 (use-package vterm
-  :ensure t)
+  :ensure t
+  :general
+  (:states 'normal
+	   "SPC v" 'vterm))

@@ -225,6 +225,29 @@ Completion at point is what most other text editors mean when they refer to comp
 
 ** Programming Languages
 
+*** Web
+
+#+begin_src emacs-lisp
+  (use-package web-mode
+    :ensure
+    t
+    :mode
+    (("\\.phtml\\'" . web-mode)
+     ("\\.php\\'" . web-mode)
+     ("\\.tpl\\'" . web-mode)
+     ("\\.[agj]sp\\'" . web-mode)
+     ("\\.as[cp]x\\'" . web-mode)
+     ("\\.erb\\'" . web-mode)
+     ("\\.mustache\\'" . web-mode)
+     ("\\.cshtml?\\'" . web-mode)
+     ("\\.djhtml\\'" . web-mode))
+    :custom
+    (web-mode-engines-alist
+     '(("razor" . "\\.cshtml\\"))))
+
+
+#+end_src
+
 *** Rust
 
 #+begin_src emacs-lisp
@@ -272,5 +295,8 @@ Completion at point is what most other text editors mean when they refer to comp
 
 #+begin_src emacs-lisp
   (use-package vterm
-    :ensure t)
+    :ensure t
+    :general
+    (:states 'normal
+  	   "SPC v" 'vterm))
 #+end_src
