@@ -44,11 +44,13 @@
     :hook (org-mode . org-auto-tangle-mode))
 #+end_src
 
-** Shell Path
+** COMMENT Shell Path
 
 #+begin_src emacs-lisp
   (use-package exec-path-from-shell
     :ensure t
+    :custom
+    (exec-path-from-shell-variables nil)
     :config
     (when (memq window-system '(mac ns x))
       (exec-path-from-shell-initialize)))
@@ -263,6 +265,13 @@ Completion at point is what most other text editors mean when they refer to comp
   (use-package nix-mode
     :ensure t
     :mode "\\.nix\\'")
+#+end_src
+
+*** Svelte
+
+#+begin_src emacs-lisp
+  (use-package svelte-mode
+    :ensure t)
 #+end_src
 
 ** Org Mode

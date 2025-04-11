@@ -31,12 +31,6 @@
   :defer t
   :hook (org-mode . org-auto-tangle-mode))
 
-(use-package exec-path-from-shell
-  :ensure t
-  :config
-  (when (memq window-system '(mac ns x))
-    (exec-path-from-shell-initialize)))
-
 (use-package direnv
   :ensure t
   :config
@@ -183,6 +177,9 @@
 (use-package nix-mode
   :ensure t
   :mode "\\.nix\\'")
+
+(use-package svelte-mode
+  :ensure t)
 
 (use-package org
   :hook

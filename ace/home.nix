@@ -4,5 +4,13 @@
     ../home/default.nix
   ];
 
-  mods.emacs.withNativeComp = false;
+  mods = {
+    emacs = {
+      enable = true;
+      withNativeComp = false;
+    };
+    langs = {
+      svelte.enable = true;
+    };
+  };
 }

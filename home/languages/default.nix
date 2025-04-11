@@ -3,5 +3,6 @@
   imports = [
     ./nix.nix
     ./svelte.nix
+    ./typescript.nix
   ];
 }
