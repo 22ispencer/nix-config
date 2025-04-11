@@ -54,6 +54,16 @@
       (exec-path-from-shell-initialize)))
 #+end_src
 
+** Direnv
+
+Automatically sources project specific files (like flakes)
+
+#+begin_src emacs-lisp
+  (use-package direnv
+    :config
+    (direnv-mode))
+#+end_src
+
 ** Keybinds
 
 #+begin_src emacs-lisp
