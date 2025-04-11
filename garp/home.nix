@@ -3,7 +3,10 @@
   imports = [
     ../home/default.nix
   ];
-  mods.jetbrains.enable = true;
-  mods.langs.svelte.enable = true;
-  mods.emacs.enable = true;
+  mods = {
+    jetbrains.enable = true;
+    langs.svelte.enable = true;
+    emacs.enable = true;
+    lorri.enable = true;
+  };
 }
