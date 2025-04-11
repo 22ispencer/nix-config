@@ -14,8 +14,6 @@ in
 
   config = lib.mkIf mod.enable {
     services.lorri.enable = true;
-    home.packages = [
-      pkgs.direnv
-    ];
+    programs.direnv.enable = true;
   };
 }
