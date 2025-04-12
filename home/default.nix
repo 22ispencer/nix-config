@@ -18,6 +18,7 @@ in {
     ./cli
     ./jetbrains
     ./lorri
+    ./direnv
   ];
 
   mods.cli.enable = true;

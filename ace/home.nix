@@ -5,6 +5,7 @@
   ];
 
   mods = {
+    direnv.enable = true;
     emacs = {
       enable = true;
       withNativeComp = false;
