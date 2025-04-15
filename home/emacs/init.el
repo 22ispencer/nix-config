@@ -31,6 +31,11 @@
   :defer t
   :hook (org-mode . org-auto-tangle-mode))
 
+(use-package exec-path-from-shell
+  :ensure t
+  :config
+  (exec-path-from-shell-initialize))
+
 (use-package direnv
   :ensure t
   :config
