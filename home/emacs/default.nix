@@ -18,6 +18,7 @@
   config =
     let
       customEmacs = (
+
         pkgs.emacsWithPackagesFromUsePackage {
           package = (
             pkgs.emacs-unstable.override {
@@ -36,6 +37,11 @@
     lib.mkIf config.mods.emacs.enable {
       programs.emacs = {
         enable = true;
+        package = customEmacs;
+      };
+      services.emacs = {
+        enable = true;
+        client.enable = true;
         package = customEmacs;
       };
 
