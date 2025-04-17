@@ -3,6 +3,8 @@
   lib,
   config,
   options,
+  email,
+  fullName,
   ...
 }:
 {
@@ -30,5 +32,22 @@
       enable = true;
       icons = "auto";
     };
+
+    programs.git = {
+      enable = true;
+      userName = fullName;
+      userEmail = email;
+      extraConfig = {
+        http = {
+          "https://mandalore.hq.wsuniar.org" = {
+            sslVerify = false;
+          };
+        };
+        core.excludesFile = builtins.toString ./global-gitignore;
+      };
+
+    };
+
+    programs.gh.enable = true;
   };
 }

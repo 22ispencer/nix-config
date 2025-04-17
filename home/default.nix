@@ -36,26 +36,6 @@ in
     enable = true;
   };
 
-  programs.git = {
-    enable = true;
-    userName = fullName;
-    userEmail = email;
-    extraConfig = {
-      http = {
-        "https://mandalore.hq.wsuniar.org" = {
-          sslVerify = false;
-        };
-      };
-    };
-
-  };
-
-  programs.gh.enable = true;
-
-  programs.fish = {
-    enable = true;
-  };
-
   programs.zoxide = {
     enable = true;
     options = [
