@@ -1,4 +1,10 @@
-{ pkgs, lib, options, config, ... }:
+{
+  pkgs,
+  lib,
+  options,
+  config,
+  ...
+}:
 {
   imports = [
     ./nix.nix

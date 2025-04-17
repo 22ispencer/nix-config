@@ -99,7 +99,7 @@
             hostname = "ace";
             nixConfigDir = "/etc/nix-darwin/";
           })
-          
+
         ];
       };
     };

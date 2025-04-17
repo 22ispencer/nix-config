@@ -1,4 +1,10 @@
-{ config, pkgs, username, ... }:
+{
+  nixpkgs,
+  config,
+  pkgs,
+  username,
+  ...
+}:
 {
   system.stateVersion = "24.11";
 

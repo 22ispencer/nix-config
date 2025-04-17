@@ -1,4 +1,10 @@
-{ pkgs, lib, config, options, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  options,
+  ...
+}:
 {
   options.mods.cli = {
     enable = lib.mkEnableOption "cli options";
@@ -12,7 +18,7 @@
       initExtra = ''
         WORDCHARS='_-.[]()'
       '';
-      autosuggestion.enable = true; 
+      autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
     };
     home.packages = [

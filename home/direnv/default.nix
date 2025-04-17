@@ -1,7 +1,13 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 let
   mod = config.mods.direnv;
-in {
+in
+{
   options.mods.direnv = {
     enable = lib.mkEnableOption "direnv";
   };

@@ -1,4 +1,9 @@
-{ pkgs, username, ... }:
+{
+  nixpkgs,
+  pkgs,
+  username,
+  ...
+}:
 {
   imports = [ ./brew.nix ];
   users.users.${username}.home = "/Users/${username}";

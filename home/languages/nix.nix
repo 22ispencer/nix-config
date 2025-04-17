@@ -1,4 +1,10 @@
-{ pkgs, lib, config, options, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  options,
+  ...
+}:
 {
   options.mods.langs.nix = {
     enable = lib.mkOption {

@@ -1,7 +1,13 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 let
   mod = config.mods.langs.typescript;
-in {
+in
+{
   options.mods.langs.typescript = {
     enable = lib.mkEnableOption "typscript tooling";
     formatter = lib.mkOption {

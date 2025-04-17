@@ -1,4 +1,9 @@
-{ username, homebrew-core, homebrew-cask, ... }:
+{
+  username,
+  homebrew-core,
+  homebrew-cask,
+  ...
+}:
 {
   nix-homebrew = {
     enable = true;

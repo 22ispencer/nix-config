@@ -1,4 +1,4 @@
-{ 
+{
   config,
   pkgs,
   username,
@@ -7,9 +7,10 @@
   ...
 }:
 
-let 
+let
   homeDirPrefix = if pkgs.stdenv.hostPlatform.isDarwin then "/Users" else "/home";
-in {
+in
+{
   imports = [
     ./ghostty.nix
     ./starship.nix
@@ -34,7 +35,7 @@ in {
   programs.neovim = {
     enable = true;
   };
-  
+
   programs.git = {
     enable = true;
     userName = fullName;
@@ -46,7 +47,7 @@ in {
         };
       };
     };
-            
+
   };
 
   programs.gh.enable = true;
@@ -57,7 +58,10 @@ in {
 
   programs.zoxide = {
     enable = true;
-    options = [ "--cmd" "cd" ];
+    options = [
+      "--cmd"
+      "cd"
+    ];
   };
 
   home.stateVersion = "24.11";
