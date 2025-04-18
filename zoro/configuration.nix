@@ -13,9 +13,6 @@
   # Bootloader.
   boot.loader.systemd-boot = {
     enable = true;
-    windows."11" = {
-      efiDeviceHandle = "HD0b";
-    };
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -50,9 +47,9 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # Desktop Environment
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -106,6 +103,11 @@
     dates = "weekly";
     options = "--delete-older-than 30d";
   };
+
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

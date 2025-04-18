@@ -52,4 +52,17 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  # NVIDIA Configuration
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia = {
+    open = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    nvidiaPersistenced = true;
+
+    modesetting.enable = true;
+    #prime = {
+    #  sync.enable = true;
+    #};
+  };
 }
