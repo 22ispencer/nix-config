@@ -49,6 +49,7 @@
           nixConfigDir,
         }:
         {
+        nix.settings.trusted-users = [ "root" username ];
           nixpkgs.overlays = [
             emacs-overlay.overlays.emacs
             emacs-overlay.overlays.package

@@ -12,6 +12,9 @@ in
     enable = lib.mkEnableOption "direnv";
   };
   config = lib.mkIf mod.enable {
+    home.packages = [
+      pkgs.devenv
+    ];
     programs = {
       direnv = {
         enable = true;
