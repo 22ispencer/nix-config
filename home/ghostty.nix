@@ -43,7 +43,6 @@
         theme = "sonokai-shusia";
         font-family-italic = "Monaspace Radon";
         font-family = "Monaspace Argon";
-        font-size = "22";
         font-feature = [
           "calt"
           "ss01"
