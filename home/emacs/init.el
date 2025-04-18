@@ -61,7 +61,7 @@
   "SPC q r" 'me/reload-config)
 
 (setq me/font-size (cond ((equal system-name "garp") 20)
-			 (t 16)))
+			 (t 14)))
 (setq me/font-name (format "Monaspace Argon-%d" me/font-size))
 
 (add-to-list 'default-frame-alist `(font . ,me/font-name))
