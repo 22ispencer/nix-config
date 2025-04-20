@@ -20,6 +20,7 @@ in
     ./jetbrains
     ./lorri
     ./direnv
+    ./tex
   ];
 
   mods.cli.enable = true;

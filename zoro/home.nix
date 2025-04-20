@@ -7,5 +7,6 @@
     emacs.enable = true;
     direnv.enable = true;
     ghostty.enable = true;
+    tex.enable = true;
   };
 }
