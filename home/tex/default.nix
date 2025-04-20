@@ -7,9 +7,8 @@ in
     enable = lib.mkEnableOption "tex compilation tools";
   };
   config = lib.mkIf mod.enable {
-    programs.texlive = {
-      enable = true;
-      package = pkgs.texliveFull;
-    };
+    home.packages = [
+      pkgs.texliveFull
+    ];
   };
 }
