@@ -64,10 +64,10 @@
 Automatically sources project specific files (like flakes)
 
 #+begin_src emacs-lisp
-  (use-package direnv
+  (use-package envrc
     :ensure t
-    :config
-    (direnv-mode))
+    :hook
+    (after-init . envrc-global-mode))
 #+end_src
 
 ** Keybinds
@@ -284,7 +284,8 @@ Completion at point is what most other text editors mean when they refer to comp
   (use-package org
     :custom
     (org-babel-load-languages '((emacs-lisp . t)
-  			      (python . t)))
+  			      (python . t)
+  			      (octave . t)))
     :hook
     (org-mode . org-indent-mode)
     (org-babel-after-execute org-redisplay-inline-images))
