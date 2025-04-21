@@ -10,14 +10,23 @@
 
   environment.systemPackages = [ ];
 
-  nix.settings.experimental-features = "nix-command flakes";
+  nix = {
+    settings = {
+      experimental-features = "nix-command flakes";
+      trusted-substituters = [
+        "https://tweag-jupyter.cachix.org"
+      ];
+      trusted-public-keys = [
+        "tweag-jupyter.cachix.org-1:UtNH4Zs6hVUFpFBTLaA4ejYavPo5EFFqgd7G7FxGW9g="
+      ];
+    };
+    gc = {
+      automatic = true;
+      options = "--delete-older-than 30d";
+    };
+  };
 
   system.stateVersion = 5;
 
   nixpkgs.hostPlatform = "aarch64-darwin";
-
-  nix.gc = {
-    automatic = true;
-    options = "--delete-older-than 30d";
-  };
 }
