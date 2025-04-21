@@ -93,6 +93,7 @@
   (evil-undo-system 'undo-redo)
   (evil-want-C-u-delete t)
   (evil-want-C-u-scroll t)
+  (evil-want-Y-yank-to-eol t)
   (evil-want-minibuffer t)
   :config
   (evil-mode 1))
@@ -190,13 +191,22 @@
   :ensure t)
 
 (use-package org
+  :custom
+  (org-babel-load-languages '((emacs-lisp . t)
+			      (python . t)))
   :hook
-  (org-mode . org-indent-mode))
+  (org-mode . org-indent-mode)
+  (org-babel-after-execute org-redisplay-inline-images))
 
 (use-package org-bullets
   :ensure t
   :hook
   (org-mode . (lambda () (org-bullets-mode 1))))
+
+(use-package engrave-faces
+  :ensure t
+  :custom
+  (org-latex-src-block-backend 'engraved))
 
 (use-package magit
   :ensure t
@@ -210,3 +220,15 @@
   :general
   (:states 'normal
 	   "SPC v" 'vterm))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(safe-local-variable-values '((org-confirm-babel-evaluate))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

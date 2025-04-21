@@ -137,6 +137,7 @@ Automatically sources project specific files (like flakes)
     (evil-undo-system 'undo-redo)
     (evil-want-C-u-delete t)
     (evil-want-C-u-scroll t)
+    (evil-want-Y-yank-to-eol t)
     (evil-want-minibuffer t)
     :config
     (evil-mode 1))
@@ -278,13 +279,22 @@ Completion at point is what most other text editors mean when they refer to comp
 
 #+begin_src emacs-lisp
   (use-package org
+    :custom
+    (org-babel-load-languages '((emacs-lisp . t)
+  			      (python . t)))
     :hook
-    (org-mode . org-indent-mode))
+    (org-mode . org-indent-mode)
+    (org-babel-after-execute org-redisplay-inline-images))
 
   (use-package org-bullets
     :ensure t
     :hook
     (org-mode . (lambda () (org-bullets-mode 1))))
+
+  (use-package engrave-faces
+    :ensure t
+    :custom
+    (org-latex-src-block-backend 'engraved))
 #+end_src
 
 * Dev Workflows
