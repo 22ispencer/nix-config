@@ -263,6 +263,13 @@ Completion at point is what most other text editors mean when they refer to comp
     (rust-mode-treesitter-derive t))
 #+end_src
 
+*** C/C++
+
+#+begin_src emacs-lisp
+  (use-package meson-mode
+    :ensure t)
+#+end_src
+
 *** Nix
 
 #+begin_src emacs-lisp
