@@ -27,5 +27,11 @@
   nixpkgs.config.allowUnfree = true;
 
   programs.zsh.enable = true;
+
+  environment.systemPackages = [
+    pkgs.qemu
+    pkgs.quickemu
+  ];
+
   users.users.${username}.shell = pkgs.zsh;
 }
