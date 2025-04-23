@@ -11,6 +11,7 @@
   config = lib.mkIf config.mods.jetbrains.enable {
     home.packages = [
       pkgs.jetbrains.datagrip
+      pkgs.jetbrains.rider
     ];
   };
 }
