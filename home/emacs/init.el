@@ -120,6 +120,11 @@
   :config
   (evil-collection-init))
 
+(use-package evil-commentary
+  :ensure t
+  :config
+  (evil-commentary-mode))
+
 (use-package vimish-fold
   :ensure t
   :after evil)
@@ -163,6 +168,16 @@
   :ensure t
   :config
   (global-treesit-auto-mode))
+
+(use-package format-all
+  :ensure t
+  :hook ((prog-mode . format-all-mode)
+	 format-all-ensure-formatter)
+  :config
+  (setq-default format-all-formatters
+		'(("C" (clang-format "--fallback-style=gnu"))
+		  ("C++" (clang-format "--fallback-style=gnu"))
+		  ("Nix" (nixfmt)))))
 
 (use-package web-mode
   :ensure

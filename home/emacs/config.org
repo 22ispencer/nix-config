@@ -164,6 +164,11 @@ Automatically sources project specific files (like flakes)
     :config
     (evil-collection-init))
 
+  (use-package evil-commentary
+    :ensure t
+    :config
+    (evil-commentary-mode))
+
   (use-package vimish-fold
     :ensure t
     :after evil)
@@ -227,6 +232,20 @@ Completion at point is what most other text editors mean when they refer to comp
     :ensure t
     :config
     (global-treesit-auto-mode))
+#+end_src
+
+** Formatting
+
+#+begin_src emacs-lisp
+  (use-package format-all
+    :ensure t
+    :hook ((prog-mode . format-all-mode)
+  	 format-all-ensure-formatter)
+    :config
+    (setq-default format-all-formatters
+  		'(("C" (clang-format "--fallback-style=gnu"))
+  		  ("C++" (clang-format "--fallback-style=gnu"))
+  		  ("Nix" (nixfmt)))))
 #+end_src
 
 ** Programming Languages
