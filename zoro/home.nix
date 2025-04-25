@@ -5,6 +5,7 @@
   ];
   home.packages = [
     pkgs.libreoffice-qt6
+    pkgs.youtube-music
   ];
   mods = {
     emacs.enable = true;
