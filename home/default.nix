@@ -12,14 +12,14 @@ let
 in
 {
   imports = [
-    ./ghostty.nix
-    ./starship.nix
-    ./emacs
-    ./languages
     ./cli
-    ./jetbrains
-    ./lorri
     ./direnv
+    ./emacs
+    ./ghostty.nix
+    ./jetbrains
+    ./languages
+    ./minecraft
+    ./starship.nix
     ./tex
   ];
 
