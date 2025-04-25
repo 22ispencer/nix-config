@@ -25,6 +25,7 @@
     };
     home.packages = [
       pkgs.bat
+      pkgs.btop
       pkgs.fd
       pkgs.ripgrep
     ];
