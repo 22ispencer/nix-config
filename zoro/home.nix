@@ -11,5 +11,6 @@
     direnv.enable = true;
     ghostty.enable = true;
     tex.enable = true;
+    minecraft.enable = true;
   };
 }
