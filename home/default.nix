@@ -15,10 +15,10 @@ in
     ./cli
     ./direnv
     ./emacs
+    ./gaming
     ./ghostty.nix
     ./jetbrains
     ./languages
-    ./minecraft
     ./starship.nix
     ./tex
   ];
