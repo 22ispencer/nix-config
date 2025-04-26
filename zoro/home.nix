@@ -12,6 +12,9 @@
     direnv.enable = true;
     ghostty.enable = true;
     tex.enable = true;
-    gaming.minecraft.enable = true;
+    gaming = {
+      discord.enable = true;
+      minecraft.enable = true;
+    };
   };
 }
