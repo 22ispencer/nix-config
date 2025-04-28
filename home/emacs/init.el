@@ -63,7 +63,9 @@
   "SPC q Q" 'kill-emacs
   "SPC q r" 'me/reload-config)
 
-(setq me/font-size (cond ((equal system-name "garp") 20)
+(setq me/system (system-name))
+(setq me/font-size (cond ((string= me/system "garp") 20)
+			 ((string= me/system "ace") 16)
 			 (t 14)))
 (setq me/font-name (format "Monaspace Argon-%d" me/font-size))
 
