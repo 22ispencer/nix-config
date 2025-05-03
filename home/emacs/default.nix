@@ -35,6 +35,15 @@
       );
     in
     lib.mkIf config.mods.emacs.enable {
+      home.packages = [
+        (pkgs.aspellWithDicts (
+          dicts: with dicts; [
+            en
+            en-computers
+            en-science
+          ]
+        ))
+      ];
       programs.emacs = {
         enable = true;
         package = customEmacs;

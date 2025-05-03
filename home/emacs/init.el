@@ -232,6 +232,14 @@
   :custom
   (org-latex-src-block-backend 'engraved))
 
+(use-package pdf-tools
+  :ensure t
+  :config
+  (pdf-loader-install))
+
+(use-package auctex
+  :ensure t)
+
 (use-package magit
   :ensure t
   :general
@@ -244,3 +252,15 @@
   :general
   (:states 'normal
 	   "SPC v" 'vterm))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(safe-local-variable-values '((org-confirm-babel-evaluate))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

@@ -329,6 +329,18 @@ Completion at point is what most other text editors mean when they refer to comp
     (org-latex-src-block-backend 'engraved))
 #+end_src
 
+** Tex
+
+#+begin_src emacs-lisp
+  (use-package pdf-tools
+    :ensure t
+    :config
+    (pdf-loader-install))
+
+  (use-package auctex
+    :ensure t)
+#+end_src
+
 * Dev Workflows
 
 ** Git
