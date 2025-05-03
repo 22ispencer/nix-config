@@ -8,7 +8,16 @@
   imports = [ ./brew.nix ];
   users.users.${username}.home = "/Users/${username}";
 
-  environment.systemPackages = [ ];
+  environment = {
+    systemPackages = [ pkgs.syncthing ];
+    userLaunchAgents = {
+      "syncthing.plist" = {
+        source = ./syncthing.plist;
+      };
+    };
+  };
+
+  nixpkgs.config.allowUnfree = true;
 
   nix = {
     settings = {
