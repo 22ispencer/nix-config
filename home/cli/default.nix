@@ -14,12 +14,20 @@
   config = lib.mkIf config.mods.cli.enable {
     programs.zsh = {
       enable = true;
-      initExtraBeforeCompInit = ''
-        zstyle ':completion:*' matcher-list ''' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
-      '';
-      initExtra = ''
-        WORDCHARS='_-.[]()'
-      '';
+      initContent =
+        let
+          extraBeforeCompInit = ''
+            zstyle ':completion:*' matcher-list ''' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+          '';
+          extra = ''
+            WORDCHARS='_-.[]()'
+          '';
+        in
+        lib.mkMerge [
+          extraBeforeCompInit
+          extra
+        ];
+
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
     };
