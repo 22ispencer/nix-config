@@ -14,6 +14,7 @@
     (display-line-numbers 'relative)
     (text-mode-ispell-word-completion nil)
     (inhibit-startup-screen t)
+    (fill-column 80)
     :hook
     (prog-mode . display-line-numbers-mode)
     :config
@@ -327,6 +328,28 @@ Completion at point is what most other text editors mean when they refer to comp
     :ensure t
     :custom
     (org-latex-src-block-backend 'engraved))
+  (setq org-preview-latex-default-process 'dvisvgm)
+  (plist-put org-format-latex-options :scale 2)
+#+end_src
+
+*** Roam
+
+#+begin_src emacs-lisp
+  (use-package org-roam
+    :ensure t
+    :custom
+    (org-roam-directory "~/org/roam")
+    :general
+    (:states 'normal :prefix "SPC n"
+  	   "f" 'org-roam-node-find
+  	   "i" 'org-roam-node-insert
+  	   "c" 'org-roam-capture
+  	   "t" 'org-roam-tag-add
+  	   "T" 'org-roam-tag-remove
+  	   "a" 'org-roam-alias-add
+  	   "a" 'org-roam-alias-remove)
+    :config
+    (org-roam-db-autosync-mode))
 #+end_src
 
 ** Tex

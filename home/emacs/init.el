@@ -6,6 +6,7 @@
   (display-line-numbers 'relative)
   (text-mode-ispell-word-completion nil)
   (inhibit-startup-screen t)
+  (fill-column 80)
   :hook
   (prog-mode . display-line-numbers-mode)
   :config
@@ -231,6 +232,24 @@
   :ensure t
   :custom
   (org-latex-src-block-backend 'engraved))
+(setq org-preview-latex-default-process 'dvisvgm)
+(plist-put org-format-latex-options :scale 2)
+
+(use-package org-roam
+  :ensure t
+  :custom
+  (org-roam-directory "~/org/roam")
+  :general
+  (:states 'normal :prefix "SPC n"
+	   "f" 'org-roam-node-find
+	   "i" 'org-roam-node-insert
+	   "c" 'org-roam-capture
+	   "t" 'org-roam-tag-add
+	   "T" 'org-roam-tag-remove
+	   "a" 'org-roam-alias-add
+	   "a" 'org-roam-alias-remove)
+  :config
+  (org-roam-db-autosync-mode))
 
 (use-package pdf-tools
   :ensure t
@@ -252,15 +271,3 @@
   :general
   (:states 'normal
 	   "SPC v" 'vterm))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(safe-local-variable-values '((org-confirm-babel-evaluate))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
