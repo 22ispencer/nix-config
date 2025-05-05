@@ -108,13 +108,6 @@
     "flakes"
   ];
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    #  wget
-  ];
-
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
@@ -122,6 +115,29 @@
 
   services.input-remapper = {
     enable = true;
+  };
+
+  services.tailscale = {
+    enable = true;
+  };
+  services.syncthing = {
+    enable = true;
+    user = "isaacspencer";
+    dataDir = "/storage/syncthing";
+    configDir = "/storage/syncthing/config";
+    settings = {
+      devices = {
+        sanji = {
+          id = "3AP5MA3-DAMW4ZO-LXYCXW4-MTARHVL-S27ZOTM-KNGEEHG-KSDOWMS-E4NX5QS";
+        };
+      };
+      folders = {
+        "dkgfh-4ytyp" = {
+          path = "/storage/syncthing/org";
+          devices = [ "sanji" ];
+        };
+      };
+    };
   };
 
   # Some programs need SUID wrappers, can be configured further or are
