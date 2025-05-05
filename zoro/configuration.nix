@@ -124,25 +124,35 @@
   services.tailscale = {
     enable = true;
   };
-  services.syncthing = {
-    enable = true;
-    user = "isaacspencer";
-    dataDir = "/storage/syncthing";
-    configDir = "/storage/syncthing/config";
-    settings = {
-      devices = {
-        sanji = {
-          id = "3AP5MA3-DAMW4ZO-LXYCXW4-MTARHVL-S27ZOTM-KNGEEHG-KSDOWMS-E4NX5QS";
+  services.syncthing =
+    let
+      data = "/storage/syncthing";
+    in
+    {
+      enable = true;
+      user = "isaacspencer";
+      dataDir = data;
+      configDir = "${data}/config";
+      settings = {
+        devices = {
+          sanji = {
+            id = "3AP5MA3-DAMW4ZO-LXYCXW4-MTARHVL-S27ZOTM-KNGEEHG-KSDOWMS-E4NX5QS";
+          };
         };
-      };
-      folders = {
-        "dkgfh-4ytyp" = {
-          path = "/storage/syncthing/org";
-          devices = [ "sanji" ];
+        folders = {
+          "dkgfh-4ytyp" = {
+            path = "${data}/org";
+            devices = [ "sanji" ];
+            ignorePerms = true;
+          };
+          "54d5o-easay" = {
+            path = "${data}/School";
+            devices = [ "sanji" ];
+            ignorePerms = true;
+          };
         };
       };
     };
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
