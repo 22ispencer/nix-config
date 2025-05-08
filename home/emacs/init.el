@@ -3,7 +3,7 @@
   ;; enable tab completion
   (frame-resize-pixelwise t)
   (tab-always-indent 'complete)
-  (display-line-numbers 'relative)
+  (display-line-numbers-type 'relative)
   (text-mode-ispell-word-completion nil)
   (inhibit-startup-screen t)
   (fill-column 80)
@@ -207,6 +207,9 @@
 (use-package meson-mode
   :ensure t)
 
+(use-package zig-mode
+  :ensure t)
+
 (use-package nix-mode
   :ensure t
   :mode "\\.nix\\'")
@@ -271,3 +274,17 @@
   :general
   (:states 'normal
 	   "SPC v" 'vterm))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(safe-local-variable-values
+   '((python-shell-interpreter . "python3.13")
+     (python-shell-interpreter . python3.13) (org-confirm-babel-evaluate))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

@@ -11,7 +11,7 @@
     ;; enable tab completion
     (frame-resize-pixelwise t)
     (tab-always-indent 'complete)
-    (display-line-numbers 'relative)
+    (display-line-numbers-type 'relative)
     (text-mode-ispell-word-completion nil)
     (inhibit-startup-screen t)
     (fill-column 80)
@@ -289,6 +289,13 @@ Completion at point is what most other text editors mean when they refer to comp
 
 #+begin_src emacs-lisp
   (use-package meson-mode
+    :ensure t)
+#+end_src
+
+*** Zig
+
+#+begin_src emacs-lisp
+  (use-package zig-mode
     :ensure t)
 #+end_src
 
