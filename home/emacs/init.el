@@ -217,6 +217,9 @@
 (use-package svelte-mode
   :ensure t)
 
+(use-package cider
+  :ensure t)
+
 (use-package org
   :custom
   (org-babel-load-languages '((emacs-lisp . t)

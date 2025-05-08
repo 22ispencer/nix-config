@@ -314,6 +314,13 @@ Completion at point is what most other text editors mean when they refer to comp
     :ensure t)
 #+end_src
 
+*** Clojure
+
+#+begin_src emacs-lisp
+  (use-package cider
+    :ensure t)
+#+end_src
+
 ** Org Mode
 
 #+begin_src emacs-lisp

@@ -31,6 +31,7 @@ in
   home.packages = [
     pkgs.monaspace
     pkgs.nerd-fonts.symbols-only
+    pkgs.noto-fonts-color-emoji
   ];
 
   programs.neovim = {
