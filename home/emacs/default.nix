@@ -43,6 +43,7 @@
             en-science
           ]
         ))
+        pkgs.parinfer-rust-emacs
       ];
       programs.emacs = {
         enable = true;

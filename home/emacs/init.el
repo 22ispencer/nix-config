@@ -18,7 +18,7 @@
 ;; Setup backup directory
 (defvar --backup-directory (concat user-emacs-directory "backups"))
 (if (not (file-exists-p --backup-directory))
-        (make-directory --backup-directory t))
+    (make-directory --backup-directory t))
 (setq backup-directory-alist `(("." . ,--backup-directory)))
 (setq make-backup-files t               ; backup of a file the first time it is saved.
       backup-by-copying t               ; don't clobber symlinks
@@ -29,8 +29,7 @@
       kept-new-versions 9               ; newest versions to keep when a new numbered backup is made (default: 2)
       auto-save-default t               ; auto-save every buffer that visits a file
       auto-save-timeout 20              ; number of seconds idle time before auto-save (default: 30)
-      auto-save-interval 200            ; number of keystrokes between auto-saves (default: 300)
-      )
+      auto-save-interval 200)            ; number of keystrokes between auto-saves (default: 300)
 
 (use-package org-auto-tangle
   :ensure t
@@ -217,7 +216,25 @@
 (use-package svelte-mode
   :ensure t)
 
+;; (add-hook emacs-lisp-mode-hook (lambda ()
+;;                                  (setq evil-shift-width 2)))
+
+(use-package parinfer-rust-mode
+  :ensure t
+  :custom
+  (parinfer-rust-disable-troublesome-modes t)
+  (parinfer-rust-preferred-mode 'indent)
+  :hook
+  ((emacs-lisp-mode clojure-mode))
+  :general
+  (:states 'normal
+           :prefix "C-c C-p"
+           "t" 'parinfer-rust-toggle-paren-mode))
+
 (use-package cider
+  :ensure t)
+
+(use-package racket-mode
   :ensure t)
 
 (use-package org
@@ -277,17 +294,3 @@
   :general
   (:states 'normal
 	   "SPC v" 'vterm))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(safe-local-variable-values
-   '((python-shell-interpreter . "python3.13")
-     (python-shell-interpreter . python3.13) (org-confirm-babel-evaluate))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
