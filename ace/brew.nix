@@ -19,6 +19,7 @@
     enable = true;
     brews = [
       "kanata"
+      "racket"
     ];
   };
 }
