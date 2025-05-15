@@ -90,6 +90,9 @@
 ;  :ensure t
 ;  :init (doom-modeline-mode 1))
 
+(use-package pdf-tools
+  :ensure t)
+
 (setq evil-want-keybinding nil)
 
 (use-package evil

@@ -6,6 +6,7 @@
   home = {
     packages = [
       pkgs.qalculate-gtk
+      pkgs.texliveFull
     ];
     sessionVariables = {
       GDK_SCALE = 2;

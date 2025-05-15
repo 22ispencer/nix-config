@@ -130,6 +130,15 @@ Automatically sources project specific files (like flakes)
   ;  :init (doom-modeline-mode 1))
 #+end_src
 
+* Capabilities
+
+** PDF
+
+#+begin_src emacs-lisp
+  (use-package pdf-tools
+    :ensure t)
+#+end_src
+
 * Text Editing
 
 ** Evil Mode
