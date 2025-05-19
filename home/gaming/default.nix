@@ -17,7 +17,7 @@ in
   config = {
 
     home.packages = [
-      (lib.mkIf mod.discord.enable pkgs.discord)
+      (lib.mkIf mod.discord.enable pkgs.legcord)
     ];
   };
 }
