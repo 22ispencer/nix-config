@@ -15,6 +15,7 @@ in
     ./cli
     ./direnv
     ./emacs
+    ./neovim
     ./gaming
     ./ghostty.nix
     ./jetbrains
@@ -33,10 +34,6 @@ in
     pkgs.nerd-fonts.symbols-only
     pkgs.noto-fonts-color-emoji
   ];
-
-  programs.neovim = {
-    enable = true;
-  };
 
   programs.zoxide = {
     enable = true;
