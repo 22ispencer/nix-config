@@ -139,6 +139,14 @@ Automatically sources project specific files (like flakes)
     :ensure t)
 #+end_src
 
+** Dired
+#+begin_src emacs-lisp
+  (use-package dirvish
+    :ensure t
+    :config
+    (dirvish-override-dired-mode))
+#+end_src
+
 * Text Editing
 
 ** Evil Mode

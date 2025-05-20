@@ -93,6 +93,11 @@
 (use-package pdf-tools
   :ensure t)
 
+(use-package dirvish
+  :ensure t
+  :config
+  (dirvish-override-dired-mode))
+
 (setq evil-want-keybinding nil)
 
 (use-package evil
