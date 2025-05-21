@@ -14,6 +14,7 @@
       enable = true;
       withNativeComp = false;
     };
+    neovim.enable = true;
     langs = {
       svelte.enable = true;
     };

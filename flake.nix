@@ -23,6 +23,10 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:22ispencer/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -37,6 +41,7 @@
       nix-homebrew,
       homebrew-core,
       homebrew-cask,
+      nixvim,
       ...
     }@inputs:
     let
@@ -63,6 +68,7 @@
               email
               fullName
               nixConfigDir
+	      nixvim
               ;
           };
         };
