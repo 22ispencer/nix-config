@@ -150,6 +150,17 @@
       };
     };
 
+  programs.ssh = {
+    startAgent = true;
+    enableAskPassword = true;
+  };
+  environment.systemPackages = [
+    pkgs.kdePackages.ksshaskpass
+  ];
+  environment.variables = {
+    SSH_ASKPASS_REQUIRE = "prefer";
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
