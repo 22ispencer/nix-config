@@ -53,6 +53,14 @@
           };
         };
         core.excludesFile = builtins.toString ./global-gitignore;
+        url = {
+          "git@github.com:" = {
+            insteadOf = "gh:";
+          };
+          "git@github.com:22ispencer/" = {
+            insteadOf = "me:";
+          };
+        };
       };
 
     };
