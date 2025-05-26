@@ -3,7 +3,6 @@
   lib,
   config,
   options,
-  firefox-pkgs,
 }:
 let
   mod = config.mods.firefox;

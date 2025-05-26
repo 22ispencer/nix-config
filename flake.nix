@@ -19,10 +19,6 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nixvim = {
       url = "github:22ispencer/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -54,7 +50,10 @@
           nixConfigDir,
         }:
         {
-        nix.settings.trusted-users = [ "root" username ];
+          nix.settings.trusted-users = [
+            "root"
+            username
+          ];
           nixpkgs.overlays = [
             emacs-overlay.overlays.emacs
             emacs-overlay.overlays.package
@@ -68,7 +67,7 @@
               email
               fullName
               nixConfigDir
-	      nixvim
+              nixvim
               ;
           };
         };
