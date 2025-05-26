@@ -15,7 +15,6 @@
   mods = {
     jetbrains.enable = true;
     langs.svelte.enable = true;
-    emacs.enable = true;
     neovim.enable = true;
     direnv.enable = true;
   };
