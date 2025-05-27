@@ -27,6 +27,7 @@ in
         set -g @catppuccin_status_left_separator "█"
         set -g @catppuccin_status_middle_separator ""
         set -g @catppuccin_status_right_separator "█"
+        set -g @catppuccin_window_current_text " #W"
         # load plugin
         run-shell ${pkgs.tmuxPlugins.catppuccin}/share/tmux-plugins/catppuccin/catppuccin.tmux
         # Make the status line pretty and add some modules
