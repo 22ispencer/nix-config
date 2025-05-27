@@ -14,7 +14,7 @@ in
 
   config = lib.mkIf mod.enable {
     programs.tmux = {
-      enabled = true;
+      enable = true;
       plugins = with pkgs.tmuxPlugins; [
         sensible
         vim-tmux-navigator
