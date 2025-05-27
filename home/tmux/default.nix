@@ -18,6 +18,7 @@ in
       plugins = with pkgs.tmuxPlugins; [
         sensible
         vim-tmux-navigator
+        pain-control
       ];
       shell = "$SHELL";
       shortcut = "Space";
