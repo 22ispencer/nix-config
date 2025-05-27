@@ -1,5 +1,4 @@
 {
-  nixpkgs,
   pkgs,
   username,
   ...
@@ -36,6 +35,7 @@
   };
 
   system.stateVersion = 5;
+  system.primaryUser = username;
 
   nixpkgs.hostPlatform = "aarch64-darwin";
 }
