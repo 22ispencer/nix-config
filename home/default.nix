@@ -22,6 +22,7 @@ in
     ./languages
     ./starship.nix
     ./tex
+    ./tmux
   ];
 
   mods.cli.enable = true;
