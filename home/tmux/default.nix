@@ -2,6 +2,7 @@
   pkgs,
   config,
   lib,
+  nixConfigDir,
   ...
 }:
 let
@@ -13,6 +14,22 @@ in
   };
 
   config = lib.mkIf mod.enable {
+    programs.fzf = {
+      enable = true;
+      tmux.enableShellIntegration = true;
+    };
+    programs.sesh = {
+      enable = true;
+      settings = {
+        session = [
+          {
+            name = "nix config";
+            path = nixConfigDir;
+            startup_command = "nvim flake.nix";
+          }
+        ];
+      };
+    };
     programs.tmux = {
       enable = true;
       plugins = with pkgs.tmuxPlugins; [
