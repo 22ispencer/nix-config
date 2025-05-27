@@ -18,17 +18,17 @@ in
       plugins = with pkgs.tmuxPlugins; [
         sensible
         vim-tmux-navigator
-        catppuccin
       ];
+      shortcut = "Space";
       extraConfig = ''
-        # setup leader
-        unbind C-b
-        set -g prefix C-Space
-        bind C-Space send-prefix
-
         ## catppuccin theme
         # fix color
         set -ag terminal-overrides ",$TERM:RGB"
+        set -g @catppuccin_status_left_separator "█"
+        set -g @catppuccin_status_middle_separator ""
+        set -g @catppuccin_status_right_separator "█"
+        # load plugin
+        run-shell ${pkgs.tmuxPlugins.catppuccin}/share/tmux-plugins/catppuccin/catppuccin.tmux
         # Make the status line pretty and add some modules
         set -g status-right-length 100
         set -g status-left-length 100
@@ -37,7 +37,8 @@ in
         set -agF status-right "#{E:@catppuccin_status_cpu}"
         set -ag status-right "#{E:@catppuccin_status_session}"
         set -ag status-right "#{E:@catppuccin_status_uptime}"
-        set -agF status-right "#{E:@catppuccin_status_battery}"
+        # load deps
+        run-shell ${pkgs.tmuxPlugins.cpu}/share/tmux-plugins/cpu/cpu.tmux
       '';
     };
   };
