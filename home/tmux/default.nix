@@ -19,8 +19,10 @@ in
         sensible
         vim-tmux-navigator
       ];
+      shell = "$SHELL";
       shortcut = "Space";
       extraConfig = ''
+        set -g default-command $SHELL
         ## catppuccin theme
         # fix color
         set -ag terminal-overrides ",$TERM:RGB"

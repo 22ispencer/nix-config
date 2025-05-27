@@ -10,10 +10,7 @@
 
   mods = {
     direnv.enable = true;
-    emacs = {
-      enable = true;
-      withNativeComp = false;
-    };
+    tmux.enable = true;
     neovim.enable = true;
     langs = {
       svelte.enable = true;

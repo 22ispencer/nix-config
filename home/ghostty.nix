@@ -1,7 +1,6 @@
 {
   lib,
   config,
-  options,
   ...
 }:
 {
@@ -40,7 +39,7 @@
         };
       };
       settings = {
-        theme = "sonokai-shusia";
+        theme = "catppuccin-mocha";
         font-family-italic = "Monaspace Radon";
         font-family = "Monaspace Argon";
         font-feature = [
