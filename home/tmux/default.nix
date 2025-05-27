@@ -21,6 +21,10 @@ in
     programs.sesh = {
       enable = true;
       settings = {
+        default_session = {
+          startup_command = "nvim -c ':Pick files'";
+          preview_command = "eza --all --git --icons --color=always {}";
+        };
         session = [
           {
             name = "nix config";
