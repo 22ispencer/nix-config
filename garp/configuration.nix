@@ -12,6 +12,7 @@
   wsl.defaultUser = "isaacspencer";
   wsl.wslConf.network.hostname = "garp";
   wsl.startMenuLaunchers = true;
+  wsl.wslConf.interop.appendWindowsPath = false;
 
   nix.settings.experimental-features = [
     "nix-command"
