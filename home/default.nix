@@ -1,9 +1,6 @@
 {
-  config,
   pkgs,
   username,
-  email,
-  fullName,
   ...
 }:
 
