@@ -57,8 +57,14 @@
           "git@github.com:" = {
             insteadOf = "gh:";
           };
+          "https://github.com/" = {
+            insteadOf = "ghh:";
+          };
           "git@github.com:22ispencer/" = {
             insteadOf = "me:";
+          };
+          "https://github.com/22ispencer/" = {
+            insteadOf = "meh:";
           };
         };
       };
