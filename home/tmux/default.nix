@@ -49,8 +49,11 @@ in
         ## enable mouse scrolling
         set -g mouse on
 
-        ## reload config
+        ## reload tmux config
         bind C-r source-file ~/.config/tmux/tmux.conf
+
+        ## rebuild nix config
+        bind M-r popup -E -E ${./rebuild-switch.sh}
 
         ## catppuccin theme
         # fix color
