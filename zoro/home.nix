@@ -8,6 +8,7 @@
     pkgs.youtube-music
   ];
   mods = {
+    tmux.enable = true;
     neovim.enable = true;
     direnv.enable = true;
     ghostty.enable = true;
