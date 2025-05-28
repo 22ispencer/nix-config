@@ -45,6 +45,13 @@ in
       shortcut = "Space";
       extraConfig = ''
         set -g default-command $SHELL
+
+        ## enable mouse scrolling
+        set -g mouse on
+
+        ## reload config
+        bind C-r source-file ~/.config/tmux/tmux.conf
+
         ## catppuccin theme
         # fix color
         set -ag terminal-overrides ",$TERM:RGB"
