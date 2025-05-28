@@ -2,7 +2,6 @@
   pkgs,
   lib,
   config,
-  options,
   email,
   fullName,
   ...
@@ -30,6 +29,9 @@
 
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
+      shellAliases = {
+        new = "${./new.sh}";
+      };
     };
     home.packages = [
       pkgs.bat
