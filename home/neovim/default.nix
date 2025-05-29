@@ -2,7 +2,6 @@
   pkgs,
   config,
   lib,
-  nixConfigDir,
   nixvim,
   ...
 }:
@@ -19,10 +18,8 @@ in
     home.packages = [
       nvim_package
     ];
-    #programs.neovim = {
-    #  enable = true;
-    #  defaultEditor = true;
-    #  package = nvim_package;
-    #};
+    home.sessionVariables = {
+      EDITOR = "nvim";
+    };
   };
 }
