@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
+rebuild_command=""
 case $OSTYPE in
-  darwin*) sudo darwin-rebuild switch;;
-        *) sudo nixos-rebuild switch;;
+  darwin*) rebuild_command="sudo darwin-rebuild switch";;
+        *) rebuild_command="sudo nixos-rebuild switch";;
 esac
 
-tmux source-file ~/.config/tmux/tmux.conf
+$rebuild_command && tmux source-file ~/.config/tmux/tmux.conf
