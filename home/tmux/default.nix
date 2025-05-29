@@ -43,6 +43,7 @@ in
       ];
       shell = "$SHELL";
       shortcut = "Space";
+      tmuxinator.enable = true;
       extraConfig = ''
         set -g default-command $SHELL
 
