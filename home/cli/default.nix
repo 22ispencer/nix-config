@@ -55,6 +55,7 @@
           };
         };
         core.excludesFile = builtins.toString ./global-gitignore;
+        init.defaultBranch = "main";
         url = {
           "git@github.com:" = {
             insteadOf = "gh:";
