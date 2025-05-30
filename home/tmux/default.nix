@@ -22,14 +22,14 @@ in
       enable = true;
       settings = {
         default_session = {
-          startup_command = "nvim -c ':Pick files'";
+          startup_command = "nvim -c ':Neogit' -c ':Pick files'";
           preview_command = "eza --all --git --icons --color=always {}";
         };
         session = [
           {
             name = "nix config";
             path = nixConfigDir;
-            startup_command = "nvim flake.nix";
+            startup_command = "nvim -c ':Neogit' -c ':Pick files'";
           }
         ];
       };
