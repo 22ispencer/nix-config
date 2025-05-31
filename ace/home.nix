@@ -6,6 +6,7 @@
 
   home.packages = [
     pkgs.youtube-music
+    pkgs.qbittorrent
   ];
 
   mods = {
