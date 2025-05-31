@@ -10,11 +10,12 @@
 
   mods = {
     direnv.enable = true;
-    tmux.enable = true;
+    jetbrains.enable = true;
     neovim.enable = true;
     langs = {
       svelte.enable = true;
     };
     tex.enable = true;
+    tmux.enable = true;
   };
 }
